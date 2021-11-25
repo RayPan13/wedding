@@ -3,6 +3,7 @@
 
 import DefaultLayout from '~/layouts/default.vue'
 import '~/assets/css/normalize.css'
+import '~/assets/scss/basic.scss'
 
 export default function(Vue, { router, head, isClient }) {
     // Set default layout as a global component

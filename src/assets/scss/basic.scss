@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+* {
+    box-sizing: border-box;
+    &::after,
+    &::before {
+        box-sizing: border-box;
+    }
+}
+html {
+    font-size: 10px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
