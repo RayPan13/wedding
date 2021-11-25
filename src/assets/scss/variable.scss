@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+@mixin media($max) {
+    @media (max-width: ($max + px)) {
+        @content;
+    }
+}
+$color: (
+    main: #eab117,
+);
