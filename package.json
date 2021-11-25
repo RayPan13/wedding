@@ -7,7 +7,9 @@
         "explore": "gridsome explore"
     },
     "dependencies": {
-        "gridsome": "^0.7.0"
+        "gridsome": "^0.7.0",
+        "typeface-dancing-script": "^1.1.13",
+        "typeface-montserrat": "^1.1.13"
     },
     "devDependencies": {
         "sass": "^1.43.5",
