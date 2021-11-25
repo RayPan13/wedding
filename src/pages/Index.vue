@@ -1,5 +1,11 @@
 <template>
     <div class="title">
+        <fa :icon="['fab', 'facebook-f']" />
+        <fa :icon="['fab', 'twitter']" />
+        <fa :icon="['fab', 'google']" />
+        <fa :icon="['fab', 'linkedin-in']" />
+        <fa :icon="['fab', 'instagram']" />
+        <fa :icon="['far', 'envelope']" />
         <h3>Our Wedding Collection</h3>
         <h1>Our Amazing Gallery</h1>
     </div>
@@ -8,6 +14,9 @@
 .title {
     text-align: center;
     padding-top: 24px;
+    svg {
+        font-size: 2.4rem;
+    }
 }
 h1 {
     font-size: 5.6rem;
