@@ -1,9 +1,16 @@
 <template>
     <header>
-        <div class="logo">
-            <fa :icon="['fas', 'gem']" />
+        <div class="container">
+            <div class="logo">
+                <fa :icon="['fas', 'gem']" />
+            </div>
+            <the-nav />
         </div>
-        <the-nav />
+        <div class="menu-btn">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     </header>
 </template>
 <script>
@@ -14,7 +21,35 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.logo {
-    font-size: 5rem;
+header {
+    padding: 32px;
+    position: relative;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 3rem;
+    }
+    .menu-btn {
+        position: absolute;
+        top: 50%;
+        right: 32px;
+        transform: translateY(-50%);
+        width: 35px;
+        padding: 4px;
+        align-self: center;
+        cursor: pointer;
+        .line {
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            margin: 0 0 4px;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
 }
 </style>
