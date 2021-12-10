@@ -43,7 +43,25 @@ nav {
         font-weight: 700;
         a {
             display: block;
-            padding: 4px 4px 8px;
+            padding: 4px;
+            position: relative;
+            &::after {
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background-color: #000;
+                position: absolute;
+                left: 50%;
+                bottom: -1px;
+                transform: translateX(-50%);
+                transition: width 0.5s;
+            }
+            &:hover {
+                &::after {
+                    width: 90%;
+                }
+            }
         }
     }
     .menu-btn {
