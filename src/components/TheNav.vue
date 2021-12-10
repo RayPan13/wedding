@@ -64,20 +64,5 @@ nav {
             }
         }
     }
-    .menu-btn {
-        width: 35px;
-        padding: 4px;
-        align-self: center;
-        cursor: pointer;
-        .line {
-            width: 100%;
-            height: 2px;
-            background-color: #000;
-            margin: 0 0 4px;
-            &:last-child {
-                margin: 0;
-            }
-        }
-    }
 }
 </style>

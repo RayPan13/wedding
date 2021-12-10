@@ -41,13 +41,23 @@ header {
         padding: 4px;
         align-self: center;
         cursor: pointer;
+        &:hover {
+            .line {
+                width: 50%;
+                &:nth-child(2) {
+                    margin-left: -10%;
+                    width: 120%;
+                }
+            }
+        }
         .line {
             width: 100%;
             height: 2px;
             background-color: #000;
-            margin: 0 0 4px;
+            margin: 0 auto 4px;
+            transition: width 0.5s;
             &:last-child {
-                margin: 0;
+                margin: 0 auto;
             }
         }
     }
