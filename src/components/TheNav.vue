@@ -41,6 +41,7 @@ nav {
         padding: 0 8px;
         font-size: 1.4rem;
         font-weight: 700;
+        color: #000;
         a {
             display: block;
             padding: 4px;

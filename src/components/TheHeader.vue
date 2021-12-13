@@ -2,6 +2,7 @@
     <header>
         <div class="container">
             <div class="logo">
+                <a href="/">logo</a>
                 <fa :icon="['fas', 'gem']" />
             </div>
             <the-nav />
@@ -23,7 +24,10 @@ export default {
 <style lang="scss" scoped>
 header {
     padding: 32px;
-    position: relative;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     .container {
         display: flex;
         justify-content: space-between;
@@ -31,6 +35,17 @@ header {
     }
     .logo {
         font-size: 3rem;
+        position: relative;
+        color: #000;
+        a {
+            display: block;
+            font-size: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
     }
     .menu-btn {
         position: absolute;
