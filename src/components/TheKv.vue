@@ -5,6 +5,13 @@
                 <img :src="obj.src" :alt="obj.id" />
             </div>
         </transition-group>
+        <div class="control">
+            <ul>
+                <li v-for="(obj, index) of carousel" :key="obj.id" :class="{ active: index === show }">
+                    <div class="dot"></div>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -52,8 +59,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .kv {
+    position: relative;
     .carousel {
         position: relative;
+        padding-top: 66.7%;
         .item {
             width: 100%;
             position: absolute;
@@ -61,6 +70,59 @@ export default {
             left: 0;
             img {
                 width: 100%;
+            }
+        }
+    }
+    .control {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+        z-index: 2;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 4px;
+            position: relative;
+            box-sizing: border-box;
+            &::after {
+                content: '';
+                display: block;
+                width: 2px;
+                height: 16px;
+                background-color: #000;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+            &.active {
+                .dot {
+                    width: 100%;
+                    height: 100%;
+                    border-width: 6px;
+                }
+            }
+            .dot {
+                width: 60%;
+                height: 60%;
+                border-radius: 50%;
+                border: 2px solid #000;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: width 0.5s, height 0.5s, border 0.1s;
             }
         }
     }
