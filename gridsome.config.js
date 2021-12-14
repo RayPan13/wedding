@@ -15,7 +15,7 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-    siteName: 'Gridsome',
+    siteName: 'Wedding',
     siteUrl: 'https://raypan13.github.io',
     pathPrefix: '/wedding',
     plugins: [],
