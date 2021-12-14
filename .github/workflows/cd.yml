@@ -5,6 +5,13 @@ on:
             - master
 jobs:
     cd:
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            matrix:
+                os: [ubuntu-latest]
+                node: [14]
+
         steps:
             - name: Install dependencies
               run: npm i
