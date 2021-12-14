@@ -7,7 +7,12 @@
         </transition-group>
         <div class="control">
             <ul>
-                <li v-for="(obj, index) of carousel" :key="obj.id" :class="{ active: index === show }">
+                <li
+                    v-for="(obj, index) of carousel"
+                    @click="setShow(index)"
+                    :key="obj.id"
+                    :class="{ active: index === show }"
+                >
                     <div class="dot"></div>
                 </li>
             </ul>
@@ -36,11 +41,12 @@ export default {
                 },
             ],
             show: 0,
+            debounce: false,
         }
     },
     mounted() {
         setInterval(() => {
-            this.setShow(this.show + 1)
+            this.debounce ? (this.debounce = false) : this.setShow(this.show + 1)
         }, interval)
     },
     methods: {
@@ -53,6 +59,7 @@ export default {
             } else {
                 this.show = number
             }
+            this.debounce = true
         },
     },
 }
@@ -90,6 +97,7 @@ export default {
             margin-bottom: 4px;
             position: relative;
             box-sizing: border-box;
+            cursor: pointer;
             &::after {
                 content: '';
                 display: block;
