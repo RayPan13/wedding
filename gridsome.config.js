@@ -16,6 +16,8 @@ function addStyleResource(rule) {
 
 module.exports = {
     siteName: 'Gridsome',
+    siteUrl: 'https://raypan13.github.io',
+    pathPrefix: '/wedding',
     plugins: [],
     chainWebpack(config) {
         const types = ['vue-modules', 'vue', 'normal-modules', 'normal']

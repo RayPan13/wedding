@@ -11,7 +11,7 @@ library.add(faFacebookF, faTwitter, faGoogle, faLinkedinIn, faInstagram)
 library.add(faEnvelope)
 library.add(faGem)
 
-import DefaultLayout from '~/layouts/default.vue'
+import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/css/normalize.css'
 import '~/assets/scss/basic.scss'
 
