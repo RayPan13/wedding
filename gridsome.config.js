@@ -19,6 +19,7 @@ module.exports = {
     siteUrl: 'https://raypan13.github.io',
     pathPrefix: '/wedding',
     plugins: [],
+    icon: './src/favicon.png',
     chainWebpack(config) {
         const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
         types.forEach((type) => {
