@@ -86,6 +86,9 @@ export default {
         left: 24px;
         transform: translateY(-50%);
         z-index: 2;
+        @include media(768) {
+            display: none;
+        }
         ul {
             margin: 0;
             padding: 0;
