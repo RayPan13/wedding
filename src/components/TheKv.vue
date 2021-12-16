@@ -70,6 +70,11 @@ export default {
 <style lang="scss" scoped>
 .kv {
     position: relative;
+    transform: translateY(-100vh);
+    transition: transform 0.5s;
+    &.show-menu {
+        transform: translateY(0);
+    }
     .carousel {
         position: relative;
         padding-top: 66.7%;

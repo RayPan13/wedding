@@ -25,10 +25,13 @@ export default {
 header {
     padding: 32px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
+    &.show-menu {
+        display: none;
+    }
     .container {
         display: flex;
         justify-content: space-between;

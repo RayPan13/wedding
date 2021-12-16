@@ -1,12 +1,16 @@
 <template>
-    <Layout>
+    <div id="app">
+        <the-menu />
+        <the-header />
         <the-kv />
-    </Layout>
+    </div>
 </template>
 <script>
 import TheKv from '@/components/TheKv.vue'
+import TheMenu from '@/components/TheMenu.vue'
+import TheHeader from '@/components/TheHeader.vue'
 export default {
-    components: { TheKv },
+    components: { TheKv, TheMenu, TheHeader },
     metaInfo: {
         title: 'index - Wedding | Girdsome',
         meta: [

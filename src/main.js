@@ -11,13 +11,13 @@ library.add(faFacebookF, faTwitter, faGoogle, faLinkedinIn, faInstagram)
 library.add(faEnvelope)
 library.add(faGem, faAngleDown)
 
-import DefaultLayout from '~/layouts/Default.vue'
+// import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/css/normalize.css'
 import '~/assets/scss/basic.scss'
 
 export default function(Vue, { router, head, isClient }) {
     // Set default layout as a global component
-    Vue.component('Layout', DefaultLayout)
+    // Vue.component('Layout', DefaultLayout)
     Vue.component('fa', FontAwesomeIcon)
 }
 //typeface font
