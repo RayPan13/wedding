@@ -1,5 +1,5 @@
 <template>
-    <div class="kv">
+    <div class="kv show-menu">
         <transition-group name="fade" tag="div" class="carousel">
             <div class="item" v-for="(obj, index) of carousel" v-show="index === show" :key="obj.id">
                 <img :src="obj.src" :alt="obj.id" />
