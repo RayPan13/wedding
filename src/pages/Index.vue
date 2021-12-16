@@ -1,9 +1,7 @@
 <template>
-    <div id="app">
-        <Layout>
-            <the-kv />
-        </Layout>
-    </div>
+    <Layout>
+        <the-kv />
+    </Layout>
 </template>
 <script>
 import TheKv from '@/components/TheKv.vue'

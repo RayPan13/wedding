@@ -17,6 +17,9 @@
                 </li>
             </ul>
         </div>
+        <div class="scroll-btn">
+            <fa :icon="['fas', 'angle-down']" />
+        </div>
     </div>
 </template>
 
@@ -135,6 +138,24 @@ export default {
                 transform: translate(-50%, -50%);
                 transition: width 0.5s, height 0.5s, border 0.1s;
             }
+        }
+    }
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #000;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        svg {
+            font-size: 2rem;
+            color: #000;
         }
     }
 }
