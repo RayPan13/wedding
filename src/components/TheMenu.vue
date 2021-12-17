@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+    <div class="menu" :class="{ 'show-menu': showMenu }">
         <div class="close-btn"></div>
         <div class="container">
             <div class="logo">
@@ -53,6 +53,11 @@ export default {
     height: 100vh;
     padding: 24px;
     z-index: 9;
+    transform: translateY(-100vh);
+    transition: transform 0.5s;
+    &.show-menu {
+        transform: translateY(0);
+    }
     .close-btn {
         width: 24px;
         height: 24px;

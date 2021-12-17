@@ -1,5 +1,5 @@
 <template>
-    <header class="show-menu">
+    <header :class="{ 'show-menu': showMenu }">
         <div class="container">
             <div class="logo">
                 <a href="/">logo</a>
@@ -19,6 +19,12 @@ import TheNav from '@/components/TheNav.vue'
 export default {
     components: { TheNav },
     name: 'TheHeader',
+    props: {
+        showMenu: {
+            type: Boolean,
+            required: true,
+        },
+    },
 }
 </script>
 <style lang="scss" scoped>

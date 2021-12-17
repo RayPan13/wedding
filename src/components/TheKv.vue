@@ -1,5 +1,5 @@
 <template>
-    <div class="kv show-menu">
+    <div class="kv" :class="{ 'show-menu': showMenu }">
         <transition-group name="fade" tag="div" class="carousel">
             <div class="item" v-for="(obj, index) of carousel" v-show="index === show" :key="obj.id">
                 <img :src="obj.src" :alt="obj.id" />
@@ -27,6 +27,12 @@
 const interval = 5000
 export default {
     name: 'TheKv',
+    props: {
+        showMenu: {
+            type: Boolean,
+            required: true,
+        },
+    },
     data() {
         return {
             carousel: [

@@ -1,10 +1,11 @@
 <template>
     <div id="app">
-        <the-menu />
-        <the-header />
-        <the-kv />
+        <the-menu :showMenu="showMenu" />
+        <the-header :showMenu="showMenu" />
+        <the-kv :showMenu="showMenu" />
     </div>
 </template>
+
 <script>
 import TheKv from '@/components/TheKv.vue'
 import TheMenu from '@/components/TheMenu.vue'
@@ -19,6 +20,11 @@ export default {
                 content: 'index - Wedding | Girdsome',
             },
         ],
+    },
+    data() {
+        return {
+            showMenu: false,
+        }
     },
 }
 </script>
