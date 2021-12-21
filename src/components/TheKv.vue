@@ -1,5 +1,5 @@
 <template>
-    <div class="kv" :class="{ 'show-menu': showMenu }" @mousemove="mouseMove" @mouseleave="mouseLeave">
+    <div class="kv" :class="{ 'show-menu': showMenu }">
         <transition-group name="fade" tag="div" class="carousel">
             <div
                 class="item"
@@ -7,6 +7,8 @@
                 v-show="index === show"
                 :key="obj.id"
                 :style="{ backgroundImage: 'url(' + obj.src + ')' }"
+                @mousemove="mouseMove"
+                @mouseleave="mouseLeave"
             >
                 <div class="container">
                     <div class="txt">
@@ -124,7 +126,7 @@ export default {
             this.moveObj = { x: 0, y: 0, duration: 0.5 }
         },
         mouseMove(e) {
-            let walk = 80
+            let walk = 60
             let { offsetWidth: width, offsetHeight: height } = e.target
             let { offsetX: x, offsetY: y } = e
             this.moveObj.x = Math.round((x / width) * walk - walk / 2)
@@ -293,7 +295,10 @@ export default {
         a {
             display: block;
             padding: 0 8px;
-            margin: 0 0 8px;
+            margin: 0 0 12px;
+            &:last-child {
+                margin: 0 0 0;
+            }
         }
     }
 }
