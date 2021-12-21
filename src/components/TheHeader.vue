@@ -7,7 +7,7 @@
             </div>
             <the-nav />
         </div>
-        <div class="menu-btn">
+        <div class="menu-btn" @click="openMenu">
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
@@ -23,6 +23,11 @@ export default {
         showMenu: {
             type: Boolean,
             required: true,
+        },
+    },
+    methods: {
+        openMenu() {
+            this.$emit('open')
         },
     },
 }

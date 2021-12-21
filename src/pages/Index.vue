@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <the-menu :showMenu="showMenu" />
-        <the-header :showMenu="showMenu" />
+        <the-menu :showMenu="showMenu" @close="closeMenu" />
+        <the-header :showMenu="showMenu" @open="openMenu" />
         <the-kv :showMenu="showMenu" />
     </div>
 </template>
@@ -25,6 +25,14 @@ export default {
         return {
             showMenu: false,
         }
+    },
+    methods: {
+        openMenu() {
+            this.showMenu = true
+        },
+        closeMenu() {
+            this.showMenu = false
+        },
     },
 }
 </script>

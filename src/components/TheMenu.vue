@@ -1,6 +1,6 @@
 <template>
     <div class="menu" :class="{ 'show-menu': showMenu }">
-        <div class="close-btn"></div>
+        <div class="close-btn" @click="closeMenu"></div>
         <div class="container">
             <div class="logo">
                 <a href="/">logo</a>
@@ -28,6 +28,12 @@ import TheNav from '@/components/TheNav.vue'
 export default {
     components: { TheNav },
     name: 'TheMenu',
+    props: {
+        showMenu: {
+            type: Boolean,
+            required: true,
+        },
+    },
     data() {
         return {
             menu: [
@@ -45,6 +51,11 @@ export default {
             ],
         }
     },
+    methods: {
+        closeMenu() {
+            this.$emit('close')
+        },
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -56,6 +67,11 @@ export default {
     transform: translateY(-100vh);
     transition: transform 0.5s;
     &.show-menu {
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
         transform: translateY(0);
     }
     .close-btn {
