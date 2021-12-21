@@ -80,6 +80,44 @@ export default {
         setInterval(() => {
             this.debounce ? (this.debounce = false) : this.setShow(this.show + 1)
         }, interval)
+        const hero = document.querySelector('.carousel')
+        const h1 = hero.querySelectorAll('h1')
+        const p = hero.querySelectorAll('p')
+        const walk = 100
+
+        function moveText(e) {
+            const { offsetWidth: width, offsetHeight: height } = hero
+            let { offsetX: x, offsetY: y } = e
+            if (this !== e.target) {
+                x = x + e.target.offsetLeft
+                y = y + e.target.offsetTop
+            }
+            const xWalk = Math.round((x / width) * walk - walk / 2)
+            const yWalk = Math.round((y / height) * walk - walk / 2)
+            const halfXWalk = xWalk / 2
+            const halfYWalk = yWalk / 2
+            h1.forEach((el) => {
+                el.style.transform = `translate3d(${-xWalk}px, ${-yWalk}px, 0px)`
+                el.style.transition = `transform 0s`
+            })
+            p.forEach((el) => {
+                el.style.transform = `translate3d(${-halfXWalk}px, ${-halfYWalk}px, 0px)`
+                el.style.transition = `transform 0s`
+            })
+        }
+        function stopMoveText() {
+            h1.forEach((el) => {
+                el.style.transform = `matrix(1, 0, 0, 1, 0, 0)`
+                el.style.transition = `transform 0.5s`
+            })
+            p.forEach((el) => {
+                el.style.transform = `matrix(1, 0, 0, 1, 0, 0)`
+                el.style.transition = `transform 0.5s`
+            })
+        }
+
+        hero.addEventListener('mousemove', moveText)
+        hero.addEventListener('mouseleave', stopMoveText)
     },
     methods: {
         setShow(number) {
@@ -135,10 +173,12 @@ export default {
                 z-index: 2;
                 text-align: center;
                 color: #fff;
+                pointer-events: none;
                 p {
                     margin: 0;
                     font-size: 2rem;
                     font-weight: 500;
+                    letter-spacing: 1px;
                     @include media(1024) {
                         font-size: 1.6rem;
                     }
@@ -232,6 +272,7 @@ export default {
         bottom: 12px;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 2;
         cursor: pointer;
         svg {
             font-size: 2rem;
