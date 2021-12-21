@@ -41,7 +41,7 @@ nav {
         padding: 0 8px;
         font-size: 1.4rem;
         font-weight: 700;
-        color: #000;
+        color: #fff;
         a {
             display: block;
             padding: 4px;
@@ -51,7 +51,7 @@ nav {
                 display: block;
                 width: 0;
                 height: 2px;
-                background-color: #000;
+                background-color: #fff;
                 position: absolute;
                 left: 50%;
                 bottom: -1px;

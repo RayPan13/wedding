@@ -20,6 +20,11 @@
         <div class="scroll-btn">
             <fa :icon="['fas', 'angle-down']" />
         </div>
+        <div class="social-media">
+            <a :href="obj.url" v-for="obj of social" :key="obj.icon[1]">
+                <fa :icon="[obj.icon[0], obj.icon[1]]" />
+            </a>
+        </div>
     </div>
 </template>
 
@@ -48,6 +53,11 @@ export default {
                     id: 3,
                     src: 'https://picsum.photos/id/777/1920/1280',
                 },
+            ],
+            social: [
+                { url: '/', icon: ['fab', 'facebook-f'] },
+                { url: '/', icon: ['fab', 'youtube'] },
+                { url: '/', icon: ['fab', 'instagram'] },
             ],
             show: 0,
             debounce: false,
@@ -89,6 +99,16 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
             img {
                 width: 100%;
             }
@@ -120,7 +140,7 @@ export default {
                 display: block;
                 width: 2px;
                 height: 16px;
-                background-color: #000;
+                background-color: #fff;
                 position: absolute;
                 bottom: -10px;
                 left: 50%;
@@ -142,7 +162,7 @@ export default {
                 width: 60%;
                 height: 60%;
                 border-radius: 50%;
-                border: 2px solid #000;
+                border: 2px solid #fff;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -157,7 +177,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid #000;
+        border: 2px solid #fff;
         border-radius: 50%;
         position: absolute;
         bottom: 12px;
@@ -166,7 +186,21 @@ export default {
         cursor: pointer;
         svg {
             font-size: 2rem;
-            color: #000;
+            color: #fff;
+        }
+    }
+    .social-media {
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 1.8rem;
+        text-align: center;
+        a {
+            display: block;
+            padding: 0 8px;
+            margin: 0 0 8px;
         }
     }
 }

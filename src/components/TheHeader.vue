@@ -51,7 +51,7 @@ header {
     .logo {
         font-size: 3rem;
         position: relative;
-        color: #000;
+        color: #fff;
         a {
             display: block;
             font-size: 0;
@@ -83,7 +83,7 @@ header {
         .line {
             width: 100%;
             height: 2px;
-            background-color: #000;
+            background-color: #fff;
             margin: 0 auto 4px;
             transition: width 0.5s;
             &:last-child {
