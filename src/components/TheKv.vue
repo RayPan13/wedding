@@ -1,8 +1,20 @@
 <template>
     <div class="kv" :class="{ 'show-menu': showMenu }">
         <transition-group name="fade" tag="div" class="carousel">
-            <div class="item" v-for="(obj, index) of carousel" v-show="index === show" :key="obj.id">
-                <img :src="obj.src" :alt="obj.id" />
+            <div
+                class="item"
+                v-for="(obj, index) of carousel"
+                v-show="index === show"
+                :key="obj.id"
+                :style="{ backgroundImage: 'url(' + obj.src + ')' }"
+            >
+                <div class="container">
+                    <div class="txt">
+                        <p>{{ title[0].toUpperCase() }}</p>
+                        <h1>{{ title[1] }}</h1>
+                        <p>{{ title[2].toUpperCase() }}</p>
+                    </div>
+                </div>
             </div>
         </transition-group>
         <div class="control">
@@ -59,6 +71,7 @@ export default {
                 { url: '/', icon: ['fab', 'youtube'] },
                 { url: '/', icon: ['fab', 'instagram'] },
             ],
+            title: ['Happy Wedding', 'Isabella & Alex', 'We Are Getting Married'],
             show: 0,
             debounce: false,
         }
@@ -93,12 +106,16 @@ export default {
     }
     .carousel {
         position: relative;
-        padding-top: 66.7%;
+        padding-top: 100vh;
         .item {
             width: 100%;
+            height: 100vh;
             position: absolute;
             top: 0;
             left: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             &::after {
                 content: '';
                 display: block;
@@ -109,8 +126,40 @@ export default {
                 bottom: 0;
                 background-color: rgba(0, 0, 0, 0.2);
             }
-            img {
+            .txt {
                 width: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                text-align: center;
+                color: #fff;
+                p {
+                    margin: 0;
+                    font-size: 2rem;
+                    font-weight: 500;
+                    @include media(1024) {
+                        font-size: 1.6rem;
+                    }
+                    @include media(768) {
+                        font-size: 1.4rem;
+                    }
+                }
+                h1 {
+                    margin: 12px 0;
+                    font-size: 8rem;
+                    font-family: $cursive;
+                    @include media(1024) {
+                        font-size: 6rem;
+                    }
+                    @include media(768) {
+                        font-size: 5rem;
+                    }
+                    @include media(480) {
+                        font-size: 4rem;
+                    }
+                }
             }
         }
     }
@@ -197,6 +246,9 @@ export default {
         color: #fff;
         font-size: 1.8rem;
         text-align: center;
+        @include media(480) {
+            display: none;
+        }
         a {
             display: block;
             padding: 0 8px;
