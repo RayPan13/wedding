@@ -1,5 +1,5 @@
 <template>
-    <div class="kv" :class="{ 'show-menu': showMenu }">
+    <div class="kv" :class="{ 'show-menu': showMenu }" @mousemove="mouseMove" @mouseleave="mouseLeave">
         <transition-group name="fade" tag="div" class="carousel">
             <div
                 class="item"
@@ -10,9 +10,30 @@
             >
                 <div class="container">
                     <div class="txt">
-                        <p>{{ title[0].toUpperCase() }}</p>
-                        <h1>{{ title[1] }}</h1>
-                        <p>{{ title[2].toUpperCase() }}</p>
+                        <p
+                            :style="{
+                                transform: `translate3d(${-halfMoveObj.x}px, ${-halfMoveObj.y}px, 0px)`,
+                                transition: `transform ${halfMoveObj.duration}s`,
+                            }"
+                        >
+                            {{ title[0].toUpperCase() }}
+                        </p>
+                        <h1
+                            :style="{
+                                transform: `translate3d(${-moveObj.x}px, ${-moveObj.y}px, 0px)`,
+                                transition: `transform ${moveObj.duration}s`,
+                            }"
+                        >
+                            {{ title[1] }}
+                        </h1>
+                        <p
+                            :style="{
+                                transform: `translate3d(${-halfMoveObj.x}px, ${-halfMoveObj.y}px, 0px)`,
+                                transition: `transform ${halfMoveObj.duration}s`,
+                            }"
+                        >
+                            {{ title[2].toUpperCase() }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -73,51 +94,19 @@ export default {
             ],
             title: ['Happy Wedding', 'Isabella & Alex', 'We Are Getting Married'],
             show: 0,
+            moveObj: { x: 0, y: 0, duration: 0 },
             debounce: false,
         }
+    },
+    computed: {
+        halfMoveObj() {
+            return { x: this.moveObj.x / 2, y: this.moveObj.y / 2, duration: 0 }
+        },
     },
     mounted() {
         setInterval(() => {
             this.debounce ? (this.debounce = false) : this.setShow(this.show + 1)
         }, interval)
-        const hero = document.querySelector('.carousel')
-        const h1 = hero.querySelectorAll('h1')
-        const p = hero.querySelectorAll('p')
-        const walk = 100
-
-        function moveText(e) {
-            const { offsetWidth: width, offsetHeight: height } = hero
-            let { offsetX: x, offsetY: y } = e
-            if (this !== e.target) {
-                x = x + e.target.offsetLeft
-                y = y + e.target.offsetTop
-            }
-            const xWalk = Math.round((x / width) * walk - walk / 2)
-            const yWalk = Math.round((y / height) * walk - walk / 2)
-            const halfXWalk = xWalk / 2
-            const halfYWalk = yWalk / 2
-            h1.forEach((el) => {
-                el.style.transform = `translate3d(${-xWalk}px, ${-yWalk}px, 0px)`
-                el.style.transition = `transform 0s`
-            })
-            p.forEach((el) => {
-                el.style.transform = `translate3d(${-halfXWalk}px, ${-halfYWalk}px, 0px)`
-                el.style.transition = `transform 0s`
-            })
-        }
-        function stopMoveText() {
-            h1.forEach((el) => {
-                el.style.transform = `matrix(1, 0, 0, 1, 0, 0)`
-                el.style.transition = `transform 0.5s`
-            })
-            p.forEach((el) => {
-                el.style.transform = `matrix(1, 0, 0, 1, 0, 0)`
-                el.style.transition = `transform 0.5s`
-            })
-        }
-
-        hero.addEventListener('mousemove', moveText)
-        hero.addEventListener('mouseleave', stopMoveText)
     },
     methods: {
         setShow(number) {
@@ -130,6 +119,17 @@ export default {
                 this.show = number
             }
             this.debounce = true
+        },
+        mouseLeave() {
+            this.moveObj = { x: 0, y: 0, duration: 0.5 }
+        },
+        mouseMove(e) {
+            let walk = 80
+            let { offsetWidth: width, offsetHeight: height } = e.target
+            let { offsetX: x, offsetY: y } = e
+            this.moveObj.x = Math.round((x / width) * walk - walk / 2)
+            this.moveObj.y = Math.round((y / height) * walk - walk / 2)
+            this.moveObj.duration = 0
         },
     },
 }
@@ -144,10 +144,10 @@ export default {
     }
     .carousel {
         position: relative;
-        padding-top: 100vh;
+        height: 100vh;
         .item {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
