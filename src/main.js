@@ -3,11 +3,18 @@
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faFacebookF, faTwitter, faGoogle, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import {
+    faFacebookF,
+    faTwitter,
+    faGoogle,
+    faLinkedinIn,
+    faInstagram,
+    faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faGem, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faFacebookF, faTwitter, faGoogle, faLinkedinIn, faInstagram)
+library.add(faFacebookF, faTwitter, faGoogle, faLinkedinIn, faInstagram, faYoutube)
 library.add(faEnvelope)
 library.add(faGem, faAngleDown)
 
