@@ -64,15 +64,15 @@ export default {
     height: 100vh;
     padding: 24px;
     z-index: 9;
-    transform: translateY(-100vh);
-    transition: transform 0.5s;
+    position: absolute;
+    top: -100vh;
+    transition: top 0.5s;
     &.show-menu {
         background-color: #fff;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 999;
-        transform: translateY(0);
     }
     .close-btn {
         width: 24px;

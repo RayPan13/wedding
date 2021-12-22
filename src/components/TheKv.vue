@@ -139,10 +139,10 @@ export default {
 <style lang="scss" scoped>
 .kv {
     position: relative;
-    transform: translateY(-100vh);
+    transform: translateY(0);
     transition: transform 0.5s;
     &.show-menu {
-        transform: translateY(0);
+        transform: translateY(100vh);
     }
     .carousel {
         position: relative;
@@ -167,7 +167,6 @@ export default {
                 background-color: rgba(0, 0, 0, 0.2);
             }
             .txt {
-                width: 100%;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -176,6 +175,9 @@ export default {
                 text-align: center;
                 color: #fff;
                 pointer-events: none;
+                @include media(768) {
+                    width: 80%;
+                }
                 p {
                     margin: 0;
                     font-size: 2rem;
