@@ -2,16 +2,20 @@
     <div id="app">
         <the-menu :showMenu="showMenu" @close="closeMenu" />
         <the-header :showMenu="showMenu" @open="openMenu" />
-        <the-kv :showMenu="showMenu" />
+        <main :class="{ 'show-menu': showMenu }">
+            <the-kv />
+            <the-about />
+        </main>
     </div>
 </template>
 
 <script>
-import TheKv from '@/components/TheKv.vue'
 import TheMenu from '@/components/TheMenu.vue'
 import TheHeader from '@/components/TheHeader.vue'
+import TheKv from '@/components/TheKv.vue'
+import TheAbout from '@/components/TheAbout.vue'
 export default {
-    components: { TheKv, TheMenu, TheHeader },
+    components: { TheMenu, TheHeader, TheKv, TheAbout },
     metaInfo: {
         title: 'index - Wedding | Girdsome',
         meta: [
@@ -36,3 +40,12 @@ export default {
     },
 }
 </script>
+<style lang="scss" scoped>
+main {
+    transform: translateY(0);
+    transition: transform 0.5s;
+    &.show-menu {
+        transform: translateY(100vh);
+    }
+}
+</style>

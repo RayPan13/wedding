@@ -1,5 +1,5 @@
 <template>
-    <div class="kv" :class="{ 'show-menu': showMenu }">
+    <div class="kv">
         <transition-group name="fade" tag="div" class="carousel">
             <div
                 class="item"
@@ -64,15 +64,9 @@
 </template>
 
 <script>
-const interval = 5000
+const interval = 6000
 export default {
     name: 'TheKv',
-    props: {
-        showMenu: {
-            type: Boolean,
-            required: true,
-        },
-    },
     data() {
         return {
             carousel: [
@@ -139,11 +133,6 @@ export default {
 <style lang="scss" scoped>
 .kv {
     position: relative;
-    transform: translateY(0);
-    transition: transform 0.5s;
-    &.show-menu {
-        transform: translateY(100vh);
-    }
     .carousel {
         position: relative;
         height: 100vh;
